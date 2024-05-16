@@ -27,5 +27,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void StageClear()
+    {
+        if(brickCount == 0)
+        {
+            //스테이지 클리어
+        }
+    }
+
+    private void EndGame()
+    {
+        if(ballCount <= 0)
+        {
+            //게임종료
+        }
+    }
+
 
 }
