@@ -1,0 +1,34 @@
+{
+    "name": "PaddleAction",
+    "maps": [
+        {
+            "name": "Paddle",
+            "id": "23943c12-373e-4fec-8cc1-5f1dbf8b55d7",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "b0747c9d-a0c6-4dc4-93f4-93d8647f4b5a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "881ff7e7-6d71-4647-aae8-43054b7e866b",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
