@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] private Button retryButton;
     [SerializeField] private TextMeshProUGUI currentScoreText;
