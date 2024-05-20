@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     private int brickCount { get; set; }
     private int ballCount { get; set; }
+
+    public BreakOutSO[] breakOutDB;
 
     private void Awake()
     {
@@ -24,8 +28,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        InitGame();
     }
+
+    private void InitGame()
+    {
+        //씬번호랑 리스트 번호랑 통일시켜야함
+        //스테이지가 넘어갈때마다 InitGame()호출
+        brickCount = breakOutDB[SceneManager.GetActiveScene().buildIndex].brickCount;
+        ballCount = breakOutDB[SceneManager.GetActiveScene().buildIndex].ballCount;
+    }
+
+
 
     private void StageClear()
     {
