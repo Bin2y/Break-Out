@@ -38,17 +38,27 @@ public class GameManager : MonoBehaviour
 
     private void StageClear()
     {
-        if(brickCount == 0)
+        if (brickCount == 0)
         {
+            CheckScore();
             //스테이지 클리어
         }
     }
 
     private void EndGame()
     {
-        if(ballCount <= 0)
+        if (ballCount <= 0)
         {
+            CheckScore();
             //게임종료
+        }
+    }
+
+    private void CheckScore()
+    {
+        if (highestScore < currentScore)
+        {
+            highestScore = currentScore;
         }
     }
 
