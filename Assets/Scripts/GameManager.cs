@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int BrickCount { get; set; }
     private int ballCount { get; set; }
 
-    public int StageLevel { get; set; } = 1;
+    public int StageLevel { get; set; } = 5;
 
     [TextArea]
     [SerializeField] private string[] BrickStrs;
