@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float yOffset;
     [SerializeField] private float xGap;
     [SerializeField] private float yGap;
+    private GameObject bricks;
 
     private void Awake()
     {
@@ -40,26 +41,53 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         MakeBrick();
+        //MakeRandBrick(5);
     }
 
     public void MakeBrick()
     {
-        string BrickStr = BrickStrs[StageLevel].Replace("\n", "");
+        string brickStr = BrickStrs[StageLevel].Replace("\n", "");
         int row = 7;
         int col;
 
-        Debug.Log(BrickStr.Length);
+        bricks = new GameObject("bricks");
 
-        for (int i = 0; i < BrickStr.Length; i++) 
+        for (int i = 0; i < brickStr.Length; i++) 
         { 
             col = i % 7;
             if(col == 0) row--;
             
-            if(BrickStr[i] == '0') continue;
+            if(brickStr[i] == '0') continue;
             else BrickCount++;
             
             GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity);
-            newBrick.GetComponent<Brick>().SettingBrick(BrickStr[i] - '0');
+            newBrick.transform.SetParent(bricks.transform, true);
+            newBrick.GetComponent<Brick>().SettingBrick(brickStr[i] - '0');
+        }
+    }
+    
+    public void MakeRandBrick(int totalRow)
+    {
+        int brinkNum = 7 * totalRow;
+        int brickType;
+
+        int row = 7;
+        int col;
+
+        bricks = new GameObject("bricks");
+
+        for(int i = 0; i < brinkNum; i++)
+        {
+            col = i % 7;
+            if(col == 0) row--;
+
+            brickType = Random.Range(0, 8);
+            if(brickType == 0) continue;
+            else BrickCount++;
+
+            GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity);
+            newBrick.transform.SetParent(bricks.transform, true);
+            newBrick.GetComponent<Brick>().SettingBrick(brickType);
         }
     }
 
