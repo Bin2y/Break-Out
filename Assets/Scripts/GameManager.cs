@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int BrickCount { get; set; }
     private int ballCount { get; set; }
 
-    public int StageLevel { get; set; } = 5;
+    [SerializeField] private int stageLevel;
 
     [TextArea]
     [SerializeField] private string[] BrickStrs;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void MakeBrick()
     {
-        string brickStr = BrickStrs[StageLevel].Replace("\n", "");
+        string brickStr = BrickStrs[stageLevel].Replace("\n", "");
         int row = 7;
         int col;
 
