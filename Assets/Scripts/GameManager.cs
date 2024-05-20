@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     private int brickCount { get; set; }
     private int ballCount { get; set; }
 
+    public int currentScore = 0;
+    public int highestScore = 0;
+
 
     private void Awake()
     {
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        Debug.Log("게임시작");
     }
 
 
