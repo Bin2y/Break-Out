@@ -8,11 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private GameObject canvasPrefab;
+    private ScoreBoard scoreBoard;
+
     private int brickCount { get; set; }
     private int ballCount { get; set; }
 
-    public int currentScore = 0;
-    public int highestScore = 0;
+    public int currentScore = 4;
+    public int highestScore = 4;
 
 
     private void Awake()
@@ -27,31 +30,44 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void Start()
     {
-        Debug.Log("게임시작");
+        Init();
     }
 
-
-
-
-    private void StageClear()
+    private void Update()
     {
         if (brickCount == 0)
         {
-            CheckScore();
-            //스테이지 클리어
+            StageClear();
         }
+        if (ballCount == 0)
+        {
+            EndGame();
+        }
+    }
+
+    public void Init()
+    {
+        MakeScoreBoard();
+        //TODO : 스테이지별로 벽돌갯수랑 ball갯수 등록
+    }
+    private void MakeScoreBoard()
+    {
+        scoreBoard = Instantiate(canvasPrefab).GetComponent<ScoreBoard>();
+    }
+
+    private void StageClear()
+    {
+        CheckScore();
+        scoreBoard?.retryButton.SetActive(true);
+        //TODO : 다음 스테이지로 넘어가기
     }
 
     private void EndGame()
     {
-        if (ballCount <= 0)
-        {
-            CheckScore();
-            //게임종료
-        }
+        CheckScore();
+        scoreBoard?.retryButton.SetActive(true);
     }
 
     private void CheckScore()
@@ -61,6 +77,5 @@ public class GameManager : MonoBehaviour
             highestScore = currentScore;
         }
     }
-
 
 }
