@@ -13,23 +13,13 @@ public class ScoreBoard : MonoBehaviour
 
     public GameObject retryButton;
 
-    static public ScoreBoard instance;
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Init()
+    {
         GameManager.instance.Init();
     }
 

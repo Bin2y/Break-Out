@@ -9,17 +9,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private GameObject canvasPrefab;
-    private ScoreBoard scoreBoard;
-
-    private int brickCount { get; set; }
-    private int ballCount { get; set; }
-
-    public int currentScore = 4;
-    public int highestScore = 4;
+    public int currentScore = 0;
+    public int highestScore = 0;
 
     public int BrickCount { get; set; }
-    private int ballCount { get; set; }
+    public int ballCount { get; set; }
 
     [SerializeField] private int stageLevel;
 
@@ -51,13 +45,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Init();
-        MakeBrick();
-        //MakeRandBrick(5);
     }
 
     private void Update()
     {
-        if (brickCount == 0)
+        if (BrickCount == 0)
         {
             StageClear();
         }
@@ -65,18 +57,19 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+        Debug.Log("ballCount : " + ballCount + " BrickCount : " + BrickCount);
     }
 
     public void Init()
     {
-        MakeScoreBoard();
+        BrickCount = 0;
+        ballCount = 1;
+        //MakeBrick();
+        MakeRandBrick(3);
+        UIManager.instance.MakeScoreBoard();
         //TODO : 스테이지별로 벽돌갯수랑 ball갯수 등록
     }
-    private void MakeScoreBoard()
-    {
-        scoreBoard = Instantiate(canvasPrefab).GetComponent<ScoreBoard>();
-        
-    }
+   
 
     public void MakeBrick()
     {
@@ -128,14 +121,14 @@ public class GameManager : MonoBehaviour
     private void StageClear()
     {
         CheckScore();
-        scoreBoard?.retryButton.SetActive(true);
+       
         //TODO : 다음 스테이지로 넘어가기
     }
 
     private void EndGame()
     {
         CheckScore();
-        scoreBoard?.retryButton.SetActive(true);
+        
     }
 
     private void CheckScore()
