@@ -45,5 +45,6 @@ public class Brick : MonoBehaviour
     {
         Destroy(gameObject);
         GameManager.instance.BrickCount--;
+        GameManager.instance.currentScore += 50;
     }
 }

@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void MakeScoreBoard()
+    private void Start()
     {
         scoreBoard = canvas.GetComponent<ScoreBoard>();
     }

@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
         ballCount = 1;
         //MakeBrick();
         MakeRandBrick(3);
-        UIManager.instance.MakeScoreBoard();
         //TODO : 스테이지별로 벽돌갯수랑 ball갯수 등록
     }
    
@@ -128,7 +127,7 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         CheckScore();
-        
+        currentScore = 0; 
     }
 
     private void CheckScore()

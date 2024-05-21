@@ -867,7 +867,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3812543101387712862, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
@@ -1006,6 +1007,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1656470037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656470039}
+  - component: {fileID: 1656470040}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1656470039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656470037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656470040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656470037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709625233726a1f4fa1303cda2566266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1598208651}
 --- !u!1 &1823803402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,9 +1414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331d8a71936a9bc43b8927d8a0293bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1598208651}
-  currentScore: 4
-  highestScore: 4
+  currentScore: 0
+  highestScore: 0
   stageLevel: 0
   BrickStrs:
   - "0: \uBE48 \uACF5\uAC04\n1: Gray\n2: Red\n3: Yellow\n4: Blue\n5: Magenta\n6:
@@ -1471,3 +1516,4 @@ SceneRoots:
   - {fileID: 275431542}
   - {fileID: 1135432263}
   - {fileID: 1598208650}
+  - {fileID: 1656470039}
