@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using System.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public int currentScore = 0;
+    public int highestScore = 0;
+
     public int BrickCount { get; set; }
-    private int ballCount { get; set; }
+    public int ballCount { get; set; }
 
     [SerializeField] private int stageLevel;
 
@@ -37,12 +42,33 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void Start()
     {
-        MakeBrick();
-        //MakeRandBrick(5);
+        Init();
     }
+
+    private void Update()
+    {
+        if (BrickCount == 0)
+        {
+            StageClear();
+        }
+        if (ballCount == 0)
+        {
+            EndGame();
+        }
+        Debug.Log("ballCount : " + ballCount + " BrickCount : " + BrickCount);
+    }
+
+    public void Init()
+    {
+        BrickCount = 0;
+        ballCount = 1;
+        //MakeBrick();
+        MakeRandBrick(3);
+        //TODO : 스테이지별로 벽돌갯수랑 ball갯수 등록
+    }
+   
 
     public void MakeBrick()
     {
@@ -93,19 +119,23 @@ public class GameManager : MonoBehaviour
 
     private void StageClear()
     {
-        if (BrickCount == 0)
-        {
-            //스테이지 클리어
-        }
+        CheckScore();
+       
+        //TODO : 다음 스테이지로 넘어가기
     }
 
     private void EndGame()
     {
-        if (ballCount <= 0)
-        {
-            //게임종료
-        }
+        CheckScore();
+        currentScore = 0; 
     }
 
+    private void CheckScore()
+    {
+        if (highestScore < currentScore)
+        {
+            highestScore = currentScore;
+        }
+    }
 
 }

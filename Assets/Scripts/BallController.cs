@@ -36,6 +36,7 @@ public class BallController : MonoBehaviour
         {
             isBallShoot = false;
             rb.velocity = Vector2.zero;
+            GameManager.instance.ballCount--; //볼이 떨어질시에 볼카운트 감소
         }
     }
 }
