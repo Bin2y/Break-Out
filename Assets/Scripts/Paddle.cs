@@ -6,17 +6,10 @@ using UnityEngine.InputSystem;
 public class Paddle : MonoBehaviour
 {
     private Camera cam;
-    private Rigidbody2D rb2d;
 
     private void Start()
     {
         cam = GetComponent<PlayerInput>().camera;
-        rb2d = GetComponent<Rigidbody2D>();
-    }
-
-    public void Update()
-    {
-        rb2d.velocity = Vector3.zero;
     }
 
     public void OnMove(InputValue input)
