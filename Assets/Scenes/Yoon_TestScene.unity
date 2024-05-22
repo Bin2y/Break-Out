@@ -191,6 +191,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148299139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2768607765942595009, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &275431537
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +367,105 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &563665017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5300646361195997201, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &622125423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622125424}
+  m_Layer: 0
+  m_Name: Bricks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622125424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622125423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &790078721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790078722}
+  - component: {fileID: 790078723}
+  m_Layer: 0
+  m_Name: Board
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &790078722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790078721}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &790078723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790078721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41256d8c8e978485ab8973092ff11779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 1823803402}
+  ball: {fileID: 275431537}
+  bricks: {fileID: 622125423}
+--- !u!1 &847369530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6966629202476644934, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &885192232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 773302801428682018, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088280497
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +896,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6798959856766038877, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: scoreBoard
+      value: 
+      objectReference: {fileID: 847369530}
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: maxScoreText
+      value: 
+      objectReference: {fileID: 1891861469}
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: nextStageButton
+      value: 
+      objectReference: {fileID: 563665017}
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: MaxScoreLiveText
+      value: 
+      objectReference: {fileID: 148299139}
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: currentScoreLiveText
+      value: 
+      objectReference: {fileID: 2004474732}
+    - target: {fileID: 3102327183916619561, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: highestScoreLiveText
+      value: 
+      objectReference: {fileID: 885192232}
+    - target: {fileID: 5909980773896832601, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: m_Name
+      value: Max Score Live Text
       objectReference: {fileID: 0}
     - target: {fileID: 6966629202476644934, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
       propertyPath: m_IsActive
@@ -874,17 +1008,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8231184523992911715, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3812543101387712862, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
---- !u!1 &1598208651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 385135491351889755, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
-  m_PrefabInstance: {fileID: 1598208650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622542911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709625233726a1f4fa1303cda2566266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1598208651}
 --- !u!1 &1823803402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1524,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1891861469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4290997536281292629, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2004474732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5353343235676649933, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+  m_PrefabInstance: {fileID: 1598208650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056027654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,8 +1621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331d8a71936a9bc43b8927d8a0293bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameOver: 1
+  highestScores: 0000000000000000000000000000000000000000000000000000000000000000
+  maxScore: 0
   currentScore: 0
-  highestScore: 0
   BrickStrs:
   - "0: \uBE48 \uACF5\uAC04\n1: Gray\n2: Red\n3: Yellow\n4: Blue\n5: Magenta\n6:
     Green\n7: Cyan\nR: Random, \uB4A4\uC5D0 \uC22B\uC790\uB294 \uD589\uC758 \uC218
@@ -1574,3 +1729,5 @@ SceneRoots:
   - {fileID: 1598208650}
   - {fileID: 1656470039}
   - {fileID: 2056027656}
+  - {fileID: 622125424}
+  - {fileID: 790078722}

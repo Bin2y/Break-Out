@@ -9,17 +9,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public static int StageLevel { get; set; }
+    public bool isGameOver = true;
 
+    public static int StageLevel { get; set; } = 1;
+
+    public int[] highestScores = new int[8];
+
+    public int maxScore = 0;
     public int currentScore = 0;
-    public int highestScore = 0;
 
     public int BrickCount { get; set; }
     public int BallCount { get; set; }
 
     [TextArea]
     [SerializeField] private string[] BrickStrs;
-    
+
     [SerializeField] private GameObject brick;
 
     //Offset: 위치 조정 위한 값, Gap: 벽돌 사이 간격
@@ -28,11 +32,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float yOffset;
     [SerializeField] private float xGap;
     [SerializeField] private float yGap;
-    private GameObject bricks;
+
     private string brickStr;
 
     private void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -43,59 +48,59 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
-        if (BrickCount == 0)
+        if (!isGameOver)
         {
-            StageClear();
+            CheckScore();
+
+            if (BrickCount == 0)
+            {
+                StageClear();
+            }
+            if (BallCount == 0)
+            {
+                EndGame();
+            }
         }
-        if (BallCount == 0)
-        {
-            EndGame();
-        }
-        Debug.Log("ballCount : " + BallCount + " BrickCount : " + BrickCount);
     }
 
-    public void StageInit()
+    public void StageInit(GameObject bricks)
     {
         BrickCount = 0;
         BallCount = 1;
-        
+
+        currentScore = 0;
+
         brickStr = BrickStrs[StageLevel].Replace("\n", "");
-        if(brickStr[0] == 'R')
-        {
-            MakeRandBrick(brickStr[0] - '0');
-        }
-        else MakeBrick();
+        if (brickStr[0] == 'R') MakeRandBrick(bricks, brickStr[0] - '0');
+        else MakeBrick(bricks);
     }
-   
-    public void MakeBrick()
+
+    public void MakeBrick(GameObject bricks)
     {
         int row = 7;
         int col;
 
-        bricks = new GameObject("bricks");
-
-        for (int i = 0; i < brickStr.Length; i++) 
-        { 
+        for (int i = 0; i < brickStr.Length; i++)
+        {
             col = i % 7;
-            if(col == 0) row--;
-            
-            if(brickStr[i] == '0') continue;
-            else BrickCount++;
-            
-            GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity);
-            newBrick.transform.SetParent(bricks.transform, true);
+            if (col == 0) row--;
+
+            if (brickStr[i] == '0') continue;
+            else
+            {
+                BrickCount++;
+                maxScore += 50;
+            }
+
+            GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity, bricks.transform);
             newBrick.GetComponent<Brick>().SettingBrick(brickStr[i] - '0');
         }
     }
-    
-    public void MakeRandBrick(int totalRow)
+
+    public void MakeRandBrick(GameObject bricks, int totalRow)
     {
         int brinkNum = 7 * totalRow;
         int brickType;
@@ -103,42 +108,37 @@ public class GameManager : MonoBehaviour
         int row = 7;
         int col;
 
-        bricks = new GameObject("bricks");
-
-        for(int i = 0; i < brinkNum; i++)
+        for (int i = 0; i < brinkNum; i++)
         {
             col = i % 7;
-            if(col == 0) row--;
+            if (col == 0) row--;
 
             brickType = Random.Range(0, 8);
-            if(brickType == 0) continue;
-            else BrickCount++;
+            if (brickType == 0) continue;
+            else
+            {
+                BrickCount++;
+                maxScore += 50;
+            }
 
-            GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity);
-            newBrick.transform.SetParent(bricks.transform, true);
+            GameObject newBrick = Instantiate(brick, new Vector3(col * xGap + xOffset, row * yGap + yOffset), Quaternion.identity, bricks.transform);
             newBrick.GetComponent<Brick>().SettingBrick(brickType);
         }
     }
 
     private void StageClear()
     {
-        CheckScore();
-       
-        //TODO : 다음 스테이지로 넘어가기
+        UIManager.instance.scoreBoard.ShowClearBoard();
     }
 
     private void EndGame()
     {
-        CheckScore();
-        currentScore = 0; 
+        UIManager.instance.scoreBoard.ShowFailBoard();
     }
 
     private void CheckScore()
     {
-        if (highestScore < currentScore)
-        {
-            highestScore = currentScore;
-        }
+        if (highestScores[StageLevel] < currentScore) highestScores[StageLevel] = currentScore;
     }
 
 }

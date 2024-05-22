@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    [SerializeField] private GameObject canvas;
+    private GameObject canvas;
     public ScoreBoard scoreBoard { get; private set; }
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        canvas = GameObject.Find("Canvas");
         scoreBoard = canvas.GetComponent<ScoreBoard>();
     }
 }

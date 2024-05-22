@@ -16,6 +16,8 @@ public class BallController : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.instance.isGameOver) gameObject.SetActive(false);
+
         if(!isBallShoot)
         {
             transform.position = Paddle.position;
