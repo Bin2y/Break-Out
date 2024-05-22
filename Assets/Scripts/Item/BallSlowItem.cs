@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BallSlowItem : Item
 {
-    float originalBallSpeed;
+    //본래의 속도를 담는다.
+    private float originalBallSpeed;
     protected override void ApplyItem(Collider2D collision)
     {
         BallController ball = GameObject.Find("Ball").GetComponent<BallController>();

@@ -30,6 +30,7 @@ public class BallController : MonoBehaviour
         }
     }
 
+    //진행중인 방향으로 힘을 주도록한다. 속도가 바뀌면 해당 함수를 이용하면 velocity를 0으로 만들었다가 다시 발사하는 방식
     public void ApplyBallMovement(Vector2 dir)
     {
         rb.velocity = Vector2.zero;

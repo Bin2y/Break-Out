@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ExtendPaddleItem : Item
 {
+    //본래의 크기를 담아야함
     private Vector3 originalScale;
     protected override void ApplyItem(Collider2D collision)
     {

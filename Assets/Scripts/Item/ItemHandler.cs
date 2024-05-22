@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemHandler : MonoBehaviour
 {
+    //아이템 프리펩을 받아서 처리
     [SerializeField] private List<GameObject> items;
 
 
