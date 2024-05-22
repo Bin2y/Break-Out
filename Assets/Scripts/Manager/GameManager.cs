@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool isGameOver = true;
+    public bool isClear = false;
+    public bool isFail = false;
 
     public static int StageLevel { get; set; } = 1;
 
@@ -71,10 +73,15 @@ public class GameManager : MonoBehaviour
         BrickCount = 0;
         BallCount = 1;
 
+        isGameOver = false;
+        isClear = false;
+        isFail = false;
+
+        maxScore = 0;
         currentScore = 0;
 
         brickStr = BrickStrs[StageLevel].Replace("\n", "");
-        if (brickStr[0] == 'R') MakeRandBrick(bricks, brickStr[0] - '0');
+        if (brickStr[0] == 'R') MakeRandBrick(bricks, brickStr[1] - '0');
         else MakeBrick(bricks);
     }
 
@@ -128,17 +135,18 @@ public class GameManager : MonoBehaviour
 
     private void StageClear()
     {
-        UIManager.instance.scoreBoard.ShowClearBoard();
+        isGameOver = true;
+        isClear = true;
     }
 
     private void EndGame()
     {
-        UIManager.instance.scoreBoard.ShowFailBoard();
+        isGameOver = true;
+        isFail = true;  
     }
 
     private void CheckScore()
     {
         if (highestScores[StageLevel] < currentScore) highestScores[StageLevel] = currentScore;
     }
-
 }
