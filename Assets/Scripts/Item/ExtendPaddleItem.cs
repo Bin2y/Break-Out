@@ -17,7 +17,6 @@ public class ExtendPaddleItem : Item
     {
         //10초동안 커졌다가 작아짐
         yield return new WaitForSecondsRealtime(10);
-        Debug.Log("크기작아짐");
         collision.gameObject.transform.localScale = originalScale;
         Destroy(gameObject);
     }

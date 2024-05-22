@@ -6,9 +6,12 @@ public class Brick : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
 
+    ItemHandler itemHandler;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        itemHandler = GameObject.Find("ItemHandler").GetComponent<ItemHandler>();
     }
 
     public void SettingBrick(int num)
@@ -46,5 +49,6 @@ public class Brick : MonoBehaviour
         Destroy(gameObject);
         GameManager.instance.BrickCount--;
         GameManager.instance.currentScore += 50;
+        itemHandler.SpawnItem(gameObject.transform.position);
     }
 }
