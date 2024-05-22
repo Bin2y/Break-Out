@@ -12,7 +12,7 @@ public class BallSlowItem : Item
         BallController ball = GameObject.Find("Ball").GetComponent<BallController>();
         originalBallSpeed = ball.ballSpeed;
         ball.ballSpeed = 250f;
-        ball.ApplyBallMovement(ball.rb.velocity.normalized);
+        ball.ApplyBallMovement(ball.rigidBody2D.velocity.normalized);
         StartCoroutine(ResetBallSpeed(ball));
     }
 
@@ -20,7 +20,7 @@ public class BallSlowItem : Item
     {
         yield return new WaitForSeconds(6f);
         ball.ballSpeed = originalBallSpeed;
-        ball.ApplyBallMovement(ball.rb.velocity.normalized);
+        ball.ApplyBallMovement(ball.rigidBody2D.velocity.normalized);
         Destroy(gameObject);
     }
 }
