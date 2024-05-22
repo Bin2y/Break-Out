@@ -13,8 +13,20 @@ public class ItemHandler : MonoBehaviour
     }
     public void SpawnItem(Vector2 pos)
     {
-        if (Random.Range(0, 100) >= 20) return;
         GameObject item = ChoosItem();
-        Instantiate(item, pos, Quaternion.identity);
+        if (GameObject.Find(item.name) != null) return;
+        //if (Random.Range(0, 100) >= 20) return;
+        item = Instantiate(item, pos, Quaternion.identity);
+        RemoveCloneText(item);
+    }
+
+    //Instantiate시에 생기는 Clone없애기
+    protected void RemoveCloneText(GameObject item)
+    {
+        int index = item.name.IndexOf("(Clone)");
+        if (index > 0)
+        {
+            item.name = item.name.Substring(0, index);
+        }
     }
 }

@@ -7,13 +7,15 @@ public class Item : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //패들과 충돌시
         if (collision.tag.Equals("Player"))
         {
-            //이미지만 끈다
-            collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
             ApplyItem(collision);
         }
     }
-    protected virtual void ApplyItem(Collider2D collision) { }
    
+
+    protected virtual void ApplyItem(Collider2D collision) { }
+
 }

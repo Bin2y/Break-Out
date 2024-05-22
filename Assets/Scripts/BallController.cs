@@ -26,8 +26,14 @@ public class BallController : MonoBehaviour
             isBallShoot = true;
             float x = Random.Range(0, 2) == 0 ? -1 : 1;
             Vector2 launchDirection = new Vector2(x, 1).normalized;
-            rb.AddForce(launchDirection * ballSpeed);
+            ApplyBallMovement(launchDirection);
         }
+    }
+
+    public void ApplyBallMovement(Vector2 dir)
+    {
+        rb.velocity = Vector2.zero;
+        rb.AddForce(dir * ballSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

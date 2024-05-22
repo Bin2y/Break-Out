@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-        Debug.Log("ballCount : " + ballCount + " BrickCount : " + BrickCount);
     }
 
     public void Init()
