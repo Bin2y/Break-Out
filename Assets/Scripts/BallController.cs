@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float ballSpeed = 500f;
     public bool isBallShoot;
     public Transform Paddle;
