@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public static int StageLevel { get; set; }
+
     public int currentScore = 0;
     public int highestScore = 0;
 
     public int BrickCount { get; set; }
-    public int ballCount { get; set; }
-
-    [SerializeField] private int stageLevel;
+    public int BallCount { get; set; }
 
     [TextArea]
     [SerializeField] private string[] BrickStrs;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float xGap;
     [SerializeField] private float yGap;
     private GameObject bricks;
+    private string brickStr;
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Init();
+        
     }
 
     private void Update()
@@ -53,26 +54,28 @@ public class GameManager : MonoBehaviour
         {
             StageClear();
         }
-        if (ballCount == 0)
+        if (BallCount == 0)
         {
             EndGame();
         }
-        Debug.Log("ballCount : " + ballCount + " BrickCount : " + BrickCount);
+        Debug.Log("ballCount : " + BallCount + " BrickCount : " + BrickCount);
     }
 
-    public void Init()
+    public void StageInit()
     {
         BrickCount = 0;
-        ballCount = 1;
-        //MakeBrick();
-        MakeRandBrick(3);
-        //TODO : 스테이지별로 벽돌갯수랑 ball갯수 등록
+        BallCount = 1;
+        
+        brickStr = BrickStrs[StageLevel].Replace("\n", "");
+        if(brickStr[0] == 'R')
+        {
+            MakeRandBrick(brickStr[0] - '0');
+        }
+        else MakeBrick();
     }
    
-
     public void MakeBrick()
     {
-        string brickStr = BrickStrs[stageLevel].Replace("\n", "");
         int row = 7;
         int col;
 

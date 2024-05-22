@@ -817,6 +817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6798959856766038877, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6966629202476644934, guid: 3b1dda9d0629c964da8ee042fd60f50f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1451,10 +1455,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScore: 0
   highestScore: 0
-  stageLevel: 0
   BrickStrs:
   - "0: \uBE48 \uACF5\uAC04\n1: Gray\n2: Red\n3: Yellow\n4: Blue\n5: Magenta\n6:
-    Green\n7: Cyan"
+    Green\n7: Cyan\nR: Random, \uB4A4\uC5D0 \uC22B\uC790\uB294 \uD589\uC758 \uC218
+    R5\uBA74 \uB79C\uB364\uC73C\uB85C 5\uC904 \uB9CC\uB4EC"
   - '1111111
 
     2222222
@@ -1468,6 +1472,7 @@ MonoBehaviour:
     0000000
 
     0000000'
+  - R5
   - '1111111
 
     2222222
@@ -1481,6 +1486,7 @@ MonoBehaviour:
     6666666
 
     0000000'
+  - R6
   - '1111111
 
     2222222
