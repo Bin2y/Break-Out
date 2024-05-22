@@ -15,8 +15,8 @@ public class ItemHandler : MonoBehaviour
     public void SpawnItem(Vector2 pos)
     {
         GameObject item = ChoosItem();
-        if (GameObject.Find(item.name) != null) return;
-        //if (Random.Range(0, 100) >= 20) return;
+        //이미 아이템이 적용중이거나 아이템 확률이 40퍼센트를 넘지 못한다면 생성 하지않는다.
+        if (GameObject.Find(item.name) != null || Random.Range(0, 100) >= 40) return;
         item = Instantiate(item, pos, Quaternion.identity);
         RemoveCloneText(item);
     }
