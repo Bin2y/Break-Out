@@ -12,6 +12,8 @@ public class ReloadScene : MonoBehaviour
 
     public void NextStage()
     {
+        if(GameManager.StageLevel >= 7) return;
+
         GameManager.StageLevel++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
