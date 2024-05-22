@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     public float ballSpeed = 500f;
     public bool isBallShoot;
     public Transform Paddle;
+    Vector2 launchDirection;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class BallController : MonoBehaviour
         {
             isBallShoot = true;
             float x = Random.Range(0, 2) == 0 ? -1 : 1;
-            Vector2 launchDirection = new Vector2(x, 1).normalized;
+            launchDirection = new Vector2(x, 1).normalized;
             ApplyBallMovement(launchDirection);
         }
     }
