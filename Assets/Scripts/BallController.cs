@@ -5,9 +5,17 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Rigidbody2D rigidBody2D
+    {
+        get
+        {
+            return rb;
+        }
+    }
     public float ballSpeed = 500f;
     public bool isBallShoot;
     public Transform Paddle;
+    Vector2 launchDirection;
 
     private void Start()
     {
@@ -25,11 +33,12 @@ public class BallController : MonoBehaviour
         {
             isBallShoot = true;
             float x = Random.Range(0, 2) == 0 ? -1 : 1;
-            Vector2 launchDirection = new Vector2(x, 1).normalized;
+            launchDirection = new Vector2(x, 1).normalized;
             ApplyBallMovement(launchDirection);
         }
     }
 
+    //진행중인 방향으로 힘을 주도록한다. 속도가 바뀌면 해당 함수를 이용하면 velocity를 0으로 만들었다가 다시 발사하는 방식
     public void ApplyBallMovement(Vector2 dir)
     {
         rb.velocity = Vector2.zero;

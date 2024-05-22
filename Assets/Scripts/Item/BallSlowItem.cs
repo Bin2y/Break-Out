@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class BallSlowItem : Item
 {
-    float originalBallSpeed;
+    //본래의 속도를 담는다.
+    private float originalBallSpeed;
     protected override void ApplyItem(Collider2D collision)
     {
         BallController ball = GameObject.Find("Ball").GetComponent<BallController>();
         originalBallSpeed = ball.ballSpeed;
         ball.ballSpeed = 250f;
-        ball.ApplyBallMovement(ball.transform.up);
+        ball.ApplyBallMovement(ball.rigidBody2D.velocity.normalized);
         StartCoroutine(ResetBallSpeed(ball));
     }
 
@@ -19,8 +20,7 @@ public class BallSlowItem : Item
     {
         yield return new WaitForSeconds(6f);
         ball.ballSpeed = originalBallSpeed;
-        ball.ApplyBallMovement(ball.transform.up);
+        ball.ApplyBallMovement(ball.rigidBody2D.velocity.normalized);
         Destroy(gameObject);
-        
     }
 }
