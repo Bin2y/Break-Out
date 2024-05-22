@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     public float ballSpeed = 500f;
     public bool isBallShoot;
     public Transform Paddle;
@@ -58,13 +58,15 @@ public class BallController : MonoBehaviour
         {
             angle = -30f;
         }
-        else if (-180f <= angle && angle <= 150f)
+        else if (-180f <= angle && angle < -150f)
         {
             angle = -150f;
         }
-        else if (150f < angle && angle < 180f)
+        else if (150f < angle && angle <= 180f)
         {
             angle = 150f;
         }
+        angle *= Mathf.Deg2Rad;
+        rb.velocity = rb.velocity.magnitude * new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
     }
 }
