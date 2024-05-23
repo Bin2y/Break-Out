@@ -14,7 +14,6 @@ public class Item : MonoBehaviour
             ApplyItem(collision);
         }
     }
-   
 
     protected virtual void ApplyItem(Collider2D collision) { }
 

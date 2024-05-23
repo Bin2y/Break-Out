@@ -40,8 +40,6 @@ public class Brick : MonoBehaviour
                 spriteRenderer.color = Color.cyan;
                 break;
         }
-
-        GameManager.instance.BrickCount++;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -49,6 +47,7 @@ public class Brick : MonoBehaviour
         Destroy(gameObject);
         GameManager.instance.BrickCount--;
         GameManager.instance.currentScore += 50;
-        itemHandler.SpawnItem(gameObject.transform.position);
+        itemHandler.SpawnItem(gameObject.transform.position); 
+        Debug.Log("brickCount : " + GameManager.instance.BrickCount);
     }
 }

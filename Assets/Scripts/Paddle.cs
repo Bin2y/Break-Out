@@ -12,6 +12,11 @@ public class Paddle : MonoBehaviour
         cam = GetComponent<PlayerInput>().camera;
     }
 
+    private void Update()
+    {
+        if(GameManager.instance.isGameOver) gameObject.SetActive(false);
+    }
+
     public void OnMove(InputValue input)
     {
         Vector2 position = input.Get<Vector2>();
