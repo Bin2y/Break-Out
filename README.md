@@ -25,6 +25,7 @@ Chapter 2-2 프로그래밍 심화 팀과제
   - 게임매니저
   - 충돌감지
 - 선택 구현 사항
+  - 레벨 디자인
   - 스코어 보드
   - 아이템 기능
   
@@ -32,5 +33,6 @@ Chapter 2-2 프로그래밍 심화 팀과제
 
   
 ## 🖼 UML
-
+https://drive.google.com/file/d/1oRnDn1cN8lmQHCurP8k4WsZBv_5U2NDn/view
 ## 📹 시연 영상
+https://youtu.be/kxnKPqZJhNU
